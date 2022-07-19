@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DataTableAjaxCRUDController;
  
-Route::get('ajax-crud-datatable', [DataTableAjaxCRUDController::class, 'index']);
+Route::get('ajax-crud', [DataTableAjaxCRUDController::class, 'index']);
 Route::post('store-company', [DataTableAjaxCRUDController::class, 'store']);
 Route::post('edit-company', [DataTableAjaxCRUDController::class, 'edit']);
 Route::post('delete-company', [DataTableAjaxCRUDController::class, 'destroy']);

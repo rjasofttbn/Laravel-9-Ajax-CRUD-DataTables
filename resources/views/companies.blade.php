@@ -30,7 +30,7 @@
         </div>
         @endif
         <div class="card-body">
-            <table class="table table-bordered" id="ajax-crud-datatable">
+            <table class="table table-bordered" id="ajax-crud">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -92,10 +92,10 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $('#ajax-crud-datatable').DataTable({
+        $('#ajax-crud').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('ajax-crud-datatable') }}",
+            ajax: "{{ url('ajax-crud') }}",
             columns: [{
                     data: 'id',
                     name: 'id'
@@ -166,7 +166,7 @@
                 },
                 dataType: 'json',
                 success: function(res) {
-                    var oTable = $('#ajax-crud-datatable').dataTable();
+                    var oTable = $('#ajax-crud').dataTable();
                     oTable.fnDraw(false);
                 }
             });
@@ -184,7 +184,7 @@
             processData: false,
             success: (data) => {
                 $("#company-modal").modal('hide');
-                var oTable = $('#ajax-crud-datatable').dataTable();
+                var oTable = $('#ajax-crud').dataTable();
                 oTable.fnDraw(false);
                 $("#btn-save").html('Submit');
                 $("#btn-save").attr("disabled", false);
